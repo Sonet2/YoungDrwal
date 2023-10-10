@@ -14,6 +14,12 @@ public class Main_DrewnaRodzajDekor {
         System.out.println("Wybrales " + drewnoDekoracyjne);
         System.out.println("Koszt to " + zarzDrewDeko.Oblicz_koszt(drewnoDekoracyjne));
 
+        DrewnoNaOpal opal = new DrewnoNaOpal();
+
+        opal.KupDrewnoNaOpal();
+
+
+
 
 
 
