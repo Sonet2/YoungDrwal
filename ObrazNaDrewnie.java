@@ -15,7 +15,7 @@ public class ObrazNaDrewnie extends ProduktZDrewna implements ObliczenieKosztow{
 
 
         float m2O = szerokoscO * dlugoscO;
-        float cenaO = m2O * 3000;
+        float cenaO = m2O * 7000;
         return cenaO;
     }
 }

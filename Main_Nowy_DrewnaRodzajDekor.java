@@ -6,38 +6,5 @@ public class Main_Nowy_DrewnaRodzajDekor {
         {
             zarzadzanie.Menu();
         }
-
-
-
-//        RodzajDrewna rodzaj = RodzajDrewna.Sosna;
-//        DrewnoDekoracyjne drewnienko = DrewnoDekoracyjne.Rzezba;
-//
-//        System.out.println(rodzaj);
-//
-//        ZarzadzanieDrewDeko zarzDrewDeko = new ZarzadzanieDrewDeko();
-//
-//        String drewnoDekoracyjne = String.valueOf(zarzDrewDeko.wybierzDrewnoDekoracyjne());
-//
-//        System.out.println("Wybrales " + drewnoDekoracyjne);
-//        System.out.println("Koszt to " + zarzDrewDeko.Oblicz_koszt(drewnoDekoracyjne));
-//
-//        DrewnoNaOpal opal = new DrewnoNaOpal();
-//
-//        opal.KupDrewnoNaOpal();
-
-//        Barierka barierka = new Barierka("Barierka", RodzajDrewna.Sosna);
-//        System.out.println(barierka.ObliczKoszt());
-//
-//        DrewnoNaOpal drewnoNaOpal = new DrewnoNaOpal("Drewno na Opał", RodzajDrewna.Buk);
-//        System.out.println(drewnoNaOpal.ObliczKoszt());
-
-
-
-
-
-
-
-
-
     }
 }

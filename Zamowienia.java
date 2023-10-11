@@ -4,35 +4,19 @@ import java.util.IdentityHashMap;
 import java.util.Map;
 
 public class Zamowienia {
-    //private HashMap<String, String> mapa = new HashMap<>();
-    Map<Integer, String > mapaTypow = new IdentityHashMap<Integer, String>();
-    Map<Integer, String > mapaRodzaji = new IdentityHashMap<Integer, String>();
+    private ArrayList<Zamowienie> listaZamowien = new ArrayList<>();
+    private int id;
 
-    ArrayList<String> lista = new ArrayList<>();
-
-    private Float koszt;
-    private int id = 0;
-    public Zamowienia()
+    public void DodajZamowienie(int id, String typDrewna, String rodzajDrewna, float koszt)
     {
-
-    }
-
-    public void DodajZamowienie(String typDrewna, String rodzajDrewna)
-    {
-//        mapaTypow.put(this.id, typDrewna);
-//        mapaRodzaji.put(this.id, rodzajDrewna);
-        lista.add(typDrewna);
+        listaZamowien.add(new Zamowienie(id, typDrewna, rodzajDrewna, koszt));
     }
 
     public void WypiszZamowienia()
     {
-//        for(int k: mapaTypow.keySet())
-//        {
-//            System.out.println("Zamówienie nr: " + this.id + " ");
-//        }
-        for(String k: lista)
+        for(Zamowienie zamowienie: listaZamowien)
         {
-            System.out.println("Zamówienie na " + k);
+            System.out.println("Zamówienie nr: " + zamowienie.getId() + " na: " + zamowienie.getTyp() + " o rodzaju: " + zamowienie.getRodzaj() + " koszt: " + zamowienie.getKoszt() + " zł.");
         }
     }
 }

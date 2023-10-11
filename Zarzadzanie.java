@@ -2,6 +2,7 @@ import java.util.Scanner;
 
 public class Zarzadzanie {
     Zamowienia zamowienia = new Zamowienia();
+    private int id = 1;
     public Zarzadzanie()
     {
 
@@ -28,9 +29,9 @@ public class Zarzadzanie {
                 RodzajDrewna rodzaj = RodzajDrewna.valueOf(scanner.next());
 
                 System.out.println("W ofercie mamy następujące typy drewna: ");
-                System.out.println("Barierka");
-                System.out.println("Rzezba");
-                System.out.println("ObrazNaDrewnie");
+                for (DrewnoDekoracyjne drewno : DrewnoDekoracyjne.values()) {
+                    System.out.println(drewno);
+                }
 
 
                 scanner.nextLine();
@@ -38,38 +39,36 @@ public class Zarzadzanie {
                 String typ = scanner.nextLine();
 
 
-
                 switch(typ) {
                     case "Barierka":
-                    {
                         Barierka barierka = new Barierka("Barierka", rodzaj);
-                        System.out.println("Za barierkę będziesz musiał zapłacić: " + barierka.ObliczKoszt() + " zł.");
-                        zamowienia.DodajZamowienie(typ, rodzaj.toString());
-                    }
-                    break;
+                        float koszt_barierka = barierka.ObliczKoszt();
+                        System.out.println("Za barierkę będziesz musiał zapłacić: " + koszt_barierka + " zł.");
+                        zamowienia.DodajZamowienie(id, typ, rodzaj.toString(), koszt_barierka);
+                        id++;
+                        break;
+
                     case "ObrazNaDrewnie":
-                    {
                         ObrazNaDrewnie obraz = new ObrazNaDrewnie("Obraz na drewnie", rodzaj);
-                        System.out.println("Za obraz na drewnie będziesz musiał zapłacić: " + obraz.ObliczKoszt() + " zł.");
-                        zamowienia.DodajZamowienie(typ, rodzaj.toString());
-                    }
-                    break;
+                        float koszt_obraz = obraz.ObliczKoszt();
+                        System.out.println("Za obraz na drewnie będziesz musiał zapłacić: " + koszt_obraz + " zł.");
+                        zamowienia.DodajZamowienie(id, typ, rodzaj.toString(), koszt_obraz);
+                        id++;
+                        break;
                     case "Rzezba":
-                    {
                         Rzezba rzezba = new Rzezba("Rzeźba", rodzaj);
-                        System.out.println("Za barierkę będziesz musiał zapłacić: " + rzezba.ObliczKoszt() + " zł.");
-                        zamowienia.DodajZamowienie(typ, rodzaj.toString());
-                    }
-                    break;
+                        float koszt_rzezba = rzezba.ObliczKoszt();
+                        System.out.println("Za rzeźbę będziesz musiał zapłacić: " + rzezba.ObliczKoszt() + " zł.");
+                        zamowienia.DodajZamowienie(id, typ, rodzaj.toString(), koszt_rzezba);
+                        id++;
+                        break;
                 }
-
-
-
-
             }
             case 2 -> {
                 DrewnoNaOpal drewnoNaOpal = new DrewnoNaOpal("Drewno na opał", RodzajDrewna.Dab);
-                System.out.println(drewnoNaOpal.ObliczKoszt());
+                float koszt_opal = drewnoNaOpal.ObliczKoszt();
+                System.out.println("Za " + drewnoNaOpal.getTony() + " ton drewna na opał będziesz musiał zapłacić: " + koszt_opal + " zł.");
+                zamowienia.DodajZamowienie(id, "Drewno na opał", RodzajDrewna.Dab.toString(), koszt_opal);
             }
             case 3 -> {
                 zamowienia.WypiszZamowienia();
