@@ -7,12 +7,6 @@ public class DrewnoNaOpal extends ProduktZDrewna implements ObliczenieKosztow {
         super(nazwa, rodzaj);
     }
 
-    public void KupDrewnoNaOpal()
-    {
-
-        //System.out.println("Za " + tony + " tony drewna na opal zaplacisz: " + koszt + " zl");
-    }
-
     @Override
     public float ObliczKoszt() {
         Scanner skaner = new Scanner(System.in);
