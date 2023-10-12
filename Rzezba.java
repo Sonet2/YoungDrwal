@@ -9,14 +9,14 @@ public class Rzezba extends ProduktZDrewna implements ObliczenieKosztow{
     public float ObliczKoszt() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Podaj wysokosc rzezby: ");
-        float wysokoscRz = scanner.nextFloat();
+        float wysokosc = scanner.nextFloat();
         System.out.println("Podaj szerokosc rzezby: ");
-        float szerokoscRz = scanner.nextFloat();
+        float szerokosc = scanner.nextFloat();
         System.out.println("Podaj dlugosc rzezby: ");
-        float dlugoscRz = scanner.nextFloat();
+        float dlugosc = scanner.nextFloat();
 
-        float m2Rz = wysokoscRz * szerokoscRz * dlugoscRz;
-        float cenaRz = m2Rz * 3500;
-        return cenaRz;
+        float m2 = wysokosc * szerokosc * dlugosc;
+        float koszt = m2 * 3500;
+        return koszt;
     }
 }

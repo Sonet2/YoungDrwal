@@ -1,7 +1,4 @@
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.IdentityHashMap;
-import java.util.Map;
 
 public class Zamowienia {
     private ArrayList<Zamowienie> listaZamowien = new ArrayList<>();

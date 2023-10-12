@@ -9,13 +9,13 @@ public class ObrazNaDrewnie extends ProduktZDrewna implements ObliczenieKosztow{
     public float ObliczKoszt() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Podaj dlugosc obrazu: ");
-        float dlugoscO = scanner.nextFloat();
+        float dlugosc = scanner.nextFloat();
         System.out.println("Podaj szerokosc obrazu: ");
-        float szerokoscO = scanner.nextFloat();
+        float szerokosc = scanner.nextFloat();
 
 
-        float m2O = szerokoscO * dlugoscO;
-        float cenaO = m2O * 7000;
-        return cenaO;
+        float m2 = szerokosc * dlugosc;
+        float koszt = m2 * 7000;
+        return koszt;
     }
 }

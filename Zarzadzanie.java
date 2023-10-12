@@ -2,13 +2,11 @@ import java.util.Scanner;
 
 public class Zarzadzanie {
     Zamowienia zamowienia = new Zamowienia();
+    OperacjeKonsoli operacjeKonsoli = new OperacjeKonsoli();
     private int id = 1;
-    public Zarzadzanie()
-    {
-
-    }
     public void Menu()
     {
+        //operacjeKonsoli.WyczyscKonsole();
         Scanner scanner = new Scanner(System.in);
         System.out.println("Co chciałbyś teraz zrobić?");
         System.out.println("1 - Kup drewna dekoracyjne");
@@ -63,6 +61,7 @@ public class Zarzadzanie {
                         id++;
                         break;
                 }
+                operacjeKonsoli.NacisnijEnter();
             }
             case 2 -> {
                 DrewnoNaOpal drewnoNaOpal = new DrewnoNaOpal("Drewno na opał", RodzajDrewna.Dab);
@@ -72,6 +71,7 @@ public class Zarzadzanie {
             }
             case 3 -> {
                 zamowienia.WypiszZamowienia();
+                break;
             }
             case 0 -> {
                 System.exit(0);

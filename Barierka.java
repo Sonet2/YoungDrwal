@@ -16,7 +16,7 @@ public class Barierka extends ProduktZDrewna implements ObliczenieKosztow{
         float dlugosc = scanner.nextFloat();
 
         float m2 = wysokosc * szerokosc * dlugosc;
-        float cena = m2 * 1000;
-        return cena;
+        float koszt = m2 * 1000;
+        return koszt;
     }
 }
