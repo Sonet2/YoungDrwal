@@ -1,20 +1,27 @@
+import java.io.File;
+import java.io.FileWriter;
+import java.util.Formatter;
 import java.util.Scanner;
+import java.io.*;
 
 public class Zarzadzanie {
     Zamowienia zamowienia = new Zamowienia();
     OperacjeKonsoli operacjeKonsoli = new OperacjeKonsoli();
+    Plik plik = new Plik();
     private int id = 1;
     private int idDeski = 1;
     private int idOpal = 1;
 
     public void Menu()
     {
+        plik.main();
         Scanner scanner = new Scanner(System.in);
         System.out.println("Co chciałbyś teraz zrobić?");
         System.out.println("1 - Kup drewna dekoracyjne");
         System.out.println("2 - Kup drewno na opał");
         System.out.println("3 - Kup deski");
         System.out.println("4 - Sprawdź cenę swojego dachu");
+        System.out.println("7 - Zapisz zamówienia");
         System.out.println("9 - Wyświetl zamówienia");
         System.out.println("0 - Wyjdź ze sklepu");
 
@@ -112,6 +119,10 @@ public class Zarzadzanie {
                 operacjeKonsoli.NacisnijEnter();
                 break;
             }
+            case 7 -> {
+                plik.Zapis();
+                break;
+            }
             case 9 -> {
                 zamowienia.WypiszZamowienia();
                 zamowienia.WypiszZamowieniaNaOpal();
@@ -125,3 +136,4 @@ public class Zarzadzanie {
         }
     }
 }
+
