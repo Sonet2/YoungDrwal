@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class Zamowienia {
-    private ArrayList<Zamowienie> listaZamowien = new ArrayList<>();
+    public ArrayList<Zamowienie> listaZamowien = new ArrayList<>();
     private ArrayList<ZamowienieNaOpal> listaNaOpal = new ArrayList<>();
     private ArrayList<ZamowienieDeski> listazamMetrow = new ArrayList<>();
     private ArrayList<ZamowienieDach> listaDach = new ArrayList<>();
@@ -34,6 +34,15 @@ public class Zamowienia {
         }
     }
 
+//    public String PlikZamowienia()
+//    {
+//        for(Zamowienie zamowienie: listaZamowien)
+//        {
+//            System.out.println("Zamówienie na drewna dekoracyjne nr: " + zamowienie.getId() + " na: " + zamowienie.getTyp() + " o rodzaju: " + zamowienie.getRodzaj() + " koszt: " + zamowienie.getKoszt() + " zł.");
+//        }
+//
+//    }
+
     public void WypiszZamowieniaNaOpal()
     {
         for(ZamowienieNaOpal zamowienie: listaNaOpal)
@@ -48,5 +57,10 @@ public class Zamowienia {
         {
             System.out.println("Zamówienie na deski nr: " + zamowienie.getId() + " na : " + zamowienie.getM3() + "m3 desek koszt: " + zamowienie.getKoszt() + " zł.");
         }
+    }
+
+    public ArrayList wezListe()
+    {
+        return this.listaZamowien;
     }
 }
