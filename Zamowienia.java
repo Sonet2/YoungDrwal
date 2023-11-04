@@ -1,10 +1,10 @@
+import java.io.*;
 import java.util.ArrayList;
 
-public class Zamowienia {
-    public ArrayList<Zamowienie> listaZamowien = new ArrayList<>();
+public class Zamowienia{
+    private ArrayList<Zamowienie> listaZamowien = new ArrayList<>();
     private ArrayList<ZamowienieNaOpal> listaNaOpal = new ArrayList<>();
     private ArrayList<ZamowienieDeski> listazamMetrow = new ArrayList<>();
-    private ArrayList<ZamowienieDach> listaDach = new ArrayList<>();
     private int id;
 
     private int idDeski;
@@ -34,14 +34,6 @@ public class Zamowienia {
         }
     }
 
-//    public String PlikZamowienia()
-//    {
-//        for(Zamowienie zamowienie: listaZamowien)
-//        {
-//            System.out.println("Zamówienie na drewna dekoracyjne nr: " + zamowienie.getId() + " na: " + zamowienie.getTyp() + " o rodzaju: " + zamowienie.getRodzaj() + " koszt: " + zamowienie.getKoszt() + " zł.");
-//        }
-//
-//    }
 
     public void WypiszZamowieniaNaOpal()
     {
@@ -59,8 +51,26 @@ public class Zamowienia {
         }
     }
 
-    public ArrayList wezListe()
-    {
-        return this.listaZamowien;
+    public void zapiszZamowienia() {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("plik.txt"))) {
+            for (Zamowienie element : listaZamowien) {
+                writer.write("Zamówienie na drewna dekoracyjne nr: " + element.getId() + " na: " + element.getTyp() + " o rodzaju: " + element.getRodzaj() + " koszt: " + element.getKoszt() + " zł.");
+                writer.newLine();
+            }
+
+            for (ZamowienieNaOpal element : listaNaOpal) {
+                writer.write("Zamówienie na drewna na opał nr: " + element.getId() + " na " + element.getTony() + " ton drewna" + " o koszcie: " + element.getKoszt() + " zł.");
+                writer.newLine();
+            }
+
+            for (ZamowienieDeski element : listazamMetrow) {
+                writer.write("Zamówienie na deski nr: " + element.getId() + " na : " + element.getM3() + "m3 desek koszt: " + element.getKoszt() + " zł.");
+                writer.newLine();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
-}
+
+    }
+

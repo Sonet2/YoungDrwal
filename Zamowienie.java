@@ -1,4 +1,6 @@
-public class Zamowienie {
+import java.io.Serializable;
+
+public class Zamowienie implements Serializable {
     private int id;
     private String typDrewna;
     private String rodzajDrewna;

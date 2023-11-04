@@ -9,11 +9,17 @@ public class DrewnoNaOpal extends ProduktZDrewna implements ObliczenieKosztow {
     }
 
     @Override
-    public float ObliczKoszt() {
+    public float ObliczKoszt() throws ZlaWartosc {
         Scanner skaner = new Scanner(System.in);
         System.out.println("Ile ton drewna chcesz kupic?");
         float tony = skaner.nextFloat();
         this.tony = tony;
+
+        if(tony < 0)
+        {
+            throw new ZlaWartosc("Nie możesz wpisać wartości mniejszych lub równych 0!");
+        }
+
         float cenazatone = 2000;
         float koszt = cenazatone * tony;
         return koszt;

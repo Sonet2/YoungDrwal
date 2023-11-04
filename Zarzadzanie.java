@@ -1,10 +1,6 @@
-import java.io.File;
-import java.io.FileWriter;
-import java.util.Formatter;
 import java.util.Scanner;
-import java.io.*;
 
-public class Zarzadzanie {
+public class Zarzadzanie{
     Zamowienia zamowienia = new Zamowienia();
     OperacjeKonsoli operacjeKonsoli = new OperacjeKonsoli();
     Plik plik = new Plik();
@@ -12,9 +8,9 @@ public class Zarzadzanie {
     private int idDeski = 1;
     private int idOpal = 1;
 
-    public void Menu()
+    public void Menu() throws ZlaWartosc
     {
-        plik.main();
+        plik.stworzPlikJakNieMa();
         Scanner scanner = new Scanner(System.in);
         System.out.println("Co chciałbyś teraz zrobić?");
         System.out.println("1 - Kup drewna dekoracyjne");
@@ -41,7 +37,6 @@ public class Zarzadzanie {
                 for (DrewnoDekoracyjne drewno : DrewnoDekoracyjne.values()) {
                     System.out.println(drewno);
                 }
-
 
                 scanner.nextLine();
                 System.out.print("Wybierz typ drewna: ");
@@ -90,6 +85,11 @@ public class Zarzadzanie {
                 System.out.println("Podaj wysokosc desek w metrach: ");
                 float wysokosc = scanner.nextFloat();
 
+                if(dlugosc < 0 || szerokosc < 0 || wysokosc < 0)
+                {
+                    throw new ZlaWartosc("Nie możesz wpisać wartości mniejszych lub równych 0!");
+                }
+
                 cena_m3 cenaM3 = new cena_m3(dlugosc, szerokosc, wysokosc);
                 System.out.println("Cena za metr wynosi: " + cenaM3.liczenie_kubikow());
                 zamowienia.DodajZamowienieNaDeski(idDeski, cenaM3.getKubiki(), cenaM3.liczenie_kubikow());
@@ -109,6 +109,12 @@ public class Zarzadzanie {
                 float dlugosc_spad_a = scanner.nextFloat();
                 System.out.println("Podaj dlugosc spadu przy krotszym boku");
                 float dlugosc_spad_b = scanner.nextFloat();
+
+                if(dlugosc_belki < 0 || dlugosc_bok_a < 0 || dlugosc_bok_b < 0 || dlugosc_spad_a < 0 || dlugosc_spad_b < 0)
+                {
+                    throw new ZlaWartosc("Nie możesz wpisać wartości mniejszych lub równych 0!");
+                }
+
                 liczenie_pow_dachu liczeniePowDachu = new liczenie_pow_dachu(dlugosc_belki,dlugosc_bok_a,dlugosc_bok_b,dlugosc_spad_a, dlugosc_spad_b);
                 System.out.println("Twoj dach:");
                 System.out.println("Łączna powierzchnia twojego dachu wynosi: " + liczeniePowDachu.liczenie_pow_ogolnej(dlugosc_belki, dlugosc_bok_a, dlugosc_bok_b));
@@ -120,7 +126,9 @@ public class Zarzadzanie {
                 break;
             }
             case 7 -> {
-                plik.Zapis();
+                zamowienia.zapiszZamowienia();
+                System.out.println("Zapisano zamówienia!");
+                operacjeKonsoli.NacisnijEnter();
                 break;
             }
             case 9 -> {
