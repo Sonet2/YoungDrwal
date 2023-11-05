@@ -6,7 +6,6 @@ public class Zamowienia{
     private ArrayList<ZamowienieNaOpal> listaNaOpal = new ArrayList<>();
     private ArrayList<ZamowienieDeski> listazamMetrow = new ArrayList<>();
     private int id;
-
     private int idDeski;
     private int idOpal;
 

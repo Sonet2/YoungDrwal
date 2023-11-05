@@ -7,11 +7,4 @@ public class OperacjeKonsoli {
         Scanner scanner = new Scanner(System.in);
         scanner.nextLine();
     }
-
-    public void WyczyscKonsole()
-    {
-        System.out.flush();
-    }
-
-
 }
